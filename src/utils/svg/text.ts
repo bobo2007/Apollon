@@ -20,6 +20,7 @@ export class Text {
     svg.appendChild(text);
 
     // TODO: here happens the error
+    console.log(text.style);
     const bounds = text.getBBox();
     Object.assign(text.style, {
       visiblity: 'hidden',
