@@ -14,12 +14,16 @@ export class Text {
     const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     Object.assign(text.style, {
       ...styles,
-      visibility: 'hidden',
+      visibility: 'visible',
     });
     text.appendChild(document.createTextNode(value));
     svg.appendChild(text);
 
+    // TODO: here happens the error
     const bounds = text.getBBox();
+    Object.assign(text.style, {
+      visiblity: 'hidden',
+    });
     svg.removeChild(text);
     return { width: bounds.width, height: bounds.height };
   };
